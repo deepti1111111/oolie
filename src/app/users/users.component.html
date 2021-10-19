@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="title-header d-flex justify-content-between mb-3">
+        <h2>User list</h2>
+        <div class="pull-right">
+            <!-- <button class="add-user-btn" (click)="addEditUser(false)"><i class="fa fa-plus" aria-hidden="true"></i>Add  User</button> -->
+        </div>
+    </div>
+    <div class="body-section">
+
+        <div class="mid-section">
+            <div class="custom-table">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" ng-if="user_list.length>0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>email</th>
+                            <th>Class</th>
+                            <th>High School</th>
+                            <th>City</th>
+                            <!-- <th>isTempPass</th> -->
+                            <th>Picture</th>
+
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let person of user_list">
+                            <td>{{ person.userId }}</td>
+                            <td>{{ person.firstName }} {{ person.lastName }}</td>
+                            <td>{{ person.email }}</td>
+                            <td>{{ person.classOf }}</td>
+                            <td>{{ person.highSchool }}</td>
+
+                            <td>{{ person.city }}</td>
+                            <!-- <td>{{ person.isTempPass }}</td> -->
+                            <td>
+                                <a href="{{ person.profilePhoto }}" target="_blank"> <img src="{{ person.profilePhoto }}" alt="profile" width="50" height="60"> </a>
+                            </td>
+                            <td class="action">
+                                <button *ngIf="!person.isBlocked" (click)='block(true,person.userId)' class="btn btn-sm btn-primary"><i class="fa fa-ban"></i></button>
+                                <button *ngIf="person.isBlocked" (click)='unblock(false,person.userId)' class="btn btn-sm btn-primary"><i class="fa fa-unlock-alt" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

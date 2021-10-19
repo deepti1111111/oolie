@@ -1,0 +1,43 @@
+<div class="login-wrapper">
+    <div class="login-container" >
+        <div class="logo-img">
+            <img src="../../assets/images/ic_launcher.png">
+        </div>
+
+        <div class="loginFormDiv" *ngIf="!isforget">
+
+            <div class="form-group">
+                <!-- <label> username:</label> -->
+                <input class="form-control" type="text" [(ngModel)]="admin_info.email" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <!-- <label>  password: </label> -->
+                <input type="password" class="form-control" [(ngModel)]="admin_info.password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <span class="alertDanger">{{error}}</span>
+                <button type="button" (click)="login()" class="btn-submit btn-primary btn-lg">Sign in to your account</button>
+            </div>
+            <div class="forget-password">
+                <button (click)="forget()" class="link-btn">Forget Password</button>
+            </div>
+
+        </div>
+        <div class="submitLogin">
+        </div>
+        <div class="forget-password-container" *ngIf="isforget">
+    
+            <div class="form-group">
+            <input type="text" [(ngModel)]="admin_info.email" class="form-control" placeholder=" please enter email"/>
+            </div>
+            <div class="form-group">
+                <button (click)="forgotPassword()" class=" btn-primary btn-lg">Forget password</button>
+            </div>
+          <div class="form-group">
+              <a  href="\home"  >Back</a>
+            </div>
+        </div>
+    </div>
+  
+    <notifier-container></notifier-container>
+</div>

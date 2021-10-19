@@ -1,0 +1,17 @@
+<div class="main-wraper" [ngClass]="(toggle)?'fullNav':'smallNav'">
+    <app-nav></app-nav>
+    <div class="slide-left" (click)="slidetoggle(toggle)">
+        <i class="la la-angle-double-left"></i>
+        <i class="la la-angle-double-right"></i>
+    </div>
+    <div class="content-wrapper">
+        <div class="body-wrapper">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- <div class="theme-change">
+        <h1>theme change</h1>
+        <div class="defult-theme">defult theme</div>
+        <div class="pink-theme">pink theme</div>
+    </div> -->
+</div>

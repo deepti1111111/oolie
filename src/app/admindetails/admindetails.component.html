@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Hi, {{admin_details.name}}!</h2>
+    You can set your passwrd...
+    <div class="row">
+        <div class="col-md-12">
+               <label for="">Old Password:</label>
+               <input type="text"  [(ngModel)]="passwordObj.oldPassword"> 
+        </div>
+        <div class="col-md-12">
+            <label for="">New Password:</label>
+            <input type="password"  [(ngModel)]="passwordObj.newPassword"> 
+        </div>
+        <div class="col-md-12">
+            <label for="">Confirm Password:</label>
+            <input type="password"  [(ngModel)]="passwordObj.confirmPassword"> 
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <button (click)="updatePassword()">Submit</button>
+        </div>
+        <div class="error">{{error}}</div>
+        <div class="success">{{success}}</div>
+        
+    </div>
+</div>

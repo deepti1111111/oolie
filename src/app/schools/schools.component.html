@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="title-header d-flex justify-content-between mb-3">
+        <h2>School list</h2>
+        <div class="pull-right">
+            <button class="add-user-btn btn btn-primary btn-lg" (click)="addEditSchool(false)"><i class="fa fa-plus" aria-hidden="true"></i>Add </button>
+        </div>
+    </div>
+    <div class="body-section">
+
+        <div class="mid-section">
+            <div class="custom-table">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let school of school_list; let i = index ">
+                            <td>{{i+1}}</td>
+                            <td>{{ school.schoolName }}</td>
+
+                            <td>{{school.address}}</td>
+                            <td>{{school.city}}</td>
+                            <td>{{school.state}}</td>
+                            <td>{{ (school.isBlocked)?'Blocked':'Unblocked' }}</td>
+                            <td class="action">
+                                <button *ngIf="!school.isBlocked" (click)='block(true,school.schoolId)' class="btn btn-sm btn-primary"><i class="fa fa-ban"></i></button>
+                                <button *ngIf="school.isBlocked" (click)='unblock(false,school.schoolId)' class="btn btn-sm btn-primary"><i class="fa fa-unlock-alt" aria-hidden="true"></i></button>
+                                <button (click)='addEditSchool(school)' class="btn btn-sm btn-secondary"><i class="fa fa-edit"></i></button>
+
+
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- address: "Meerut Cantt"
+city: "Meerut"
+isBlocked: false
+schoolId: "MpojkgBebwwnbtgMpmaD"
+schoolName: "Meerut Public School For Girls"
+state: "Uttar Pradesh" -->
+
+
+
+        </div>
+    </div>
+</div>

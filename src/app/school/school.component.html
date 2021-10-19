@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="title-header d-flex justify-content-between mb-3">
+        <h2 *ngIf="new_user">Add School</h2>
+        <h2 *ngIf="!new_user">Edit School</h2>
+
+    </div>
+    <div class="body-section">
+
+        <div class="mid-section">
+            <div class="custom-form col-md-6">
+                <div class="form-group mb-3">
+                    <input type="text" required class="form-control" name="schoolName" #name="ngModel" [(ngModel)]="school.schoolName" placeholder=" School Name*">
+
+                </div>
+                <div class="form-group  mb-3">
+                    <input type="text" required class="form-control" [(ngModel)]="school.address" name="address" placeholder="Address*">
+
+                </div>
+                <div class="form-group  mb-3">
+                    <input type="text" required class="form-control" [(ngModel)]="school.state" name="state" placeholder="State*">
+                </div>
+                <div class="form-group  mb-3">
+                    <input type="text" required class="form-control" [(ngModel)]="school.city" name="city" placeholder="City*">
+
+                </div>
+                <div class="form-group  mb-3">
+                    <p class="text-danger">{{error}}</p>
+                    <p class="text-success">{{success}}</p>
+                    <button type="button" (click)="submit()" class="btn-submit btn-lg btn-primary">Submit</button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="header">
+    <h2>User list</h2>
+  </div>
+  <div class="body-section">
+    <div class="pull-right">
+      <!-- <button class="add-user-btn" (click)="addEditUser(false)"><i class="fa fa-plus" aria-hidden="true"></i>Add  User</button> -->
+    </div>
+    <div class="mid-section">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>email</th>
+            
+            <th>Class</th>
+            <th>High School</th>
+            <th>City</th>
+            <th>isTempPass</th>
+            <th>Picture</th>
+            
+            <!-- <th>Actions</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of user_list">
+            <td>{{ person.userId }}</td>
+            <td>{{ person.firstName }} {{ person.lastName }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.classOf }}</td>
+            <td>{{ person.highSchool }}</td>
+            
+            <td>{{ person.city }}</td>
+            <td>{{ person.isTempPass }}</td>
+            <td> <a href="{{ person.profilePhoto }}" target="_blank"> <img src="{{ person.profilePhoto }}" alt="profile" width="50" height="60"> </a></td>
+            <!-- <td>
+              <button (click)="addEditUser(person.userId)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button (click)="deleteUser(person.userId)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      
+
+    </div>
+  </div>
+</div>

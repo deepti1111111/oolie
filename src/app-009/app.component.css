@@ -1,0 +1,13 @@
+.slide-left{
+  position: absolute;
+    bottom: 20px;
+    left: 100px;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 100%;
+    color: #ed3522;
+    cursor: pointer;
+}

@@ -1,0 +1,19 @@
+.detail-wrap i {
+    font-size: 41px;
+    color: #f6921f;
+    margin-right: 20px;
+}
+
+.detail-wrap .no-name h1 {
+    font-size: 43px;
+    font-weight: bold;
+}
+
+.detail-wrap {
+    border: none;
+}
+
+.detail-wrap .card-body {
+    box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+    border-radius: 8px;
+}

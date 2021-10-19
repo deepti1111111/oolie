@@ -1,0 +1,56 @@
+<div class="header-nav">
+<!-- is_admin {{is_admin}} -->
+<div class="top-header ">
+ <div class="container-fluid">
+   <div class="d-flex justify-content-between top-header-wrapper">
+     <div class="nav-toggle-btn" (click)="toggleNav(toggle)">
+      <i class="la la-bars"></i>
+     </div>
+    <div class="header-mid">
+      <img src="../../assets/images/horizontal-logo.png" class="d-none d-md-block">
+      <img src="../../assets/images/logo-icon.png" class="d-block d-md-none">
+    </div>
+
+    <div class="header-right">
+      <ng-template [ngIf]="is_admin">
+        <!-- {{admin_info.id}}
+
+        {{admin_info.name}} -->
+        <div class="top-right">
+          <div class="avtar">
+
+            <img src=" {{admin_info.profile}}">
+            <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>{{admin_info.name}}</span>
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#" routerLink="/admin-details">profile</a></li>
+                <li><button class="dropdown-item" (click)="logout()" href="#">logout</button></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </ng-template>
+    </div>
+   </div>
+ </div>
+</div>
+  <div class="header-left "   [ngClass]="(toggle)?'':'shownav'">
+    <ng-template  [ngIf]="is_admin">
+      <ul class="c-menu__items">
+          <li class="c-menu__item"><a href="#" routerLink="/dashboard" class="c-menu__link"><i class="la la-home"></i> <span>Dashboard</span></a></li>
+          <li class="c-menu__item"><a href="#" routerLink="/users" class="c-menu__link"><i class="la la-user"></i><span>Users</span></a></li>
+          <li class="c-menu__item"><a href="#" routerLink="/schools" class="c-menu__link"><i class="la la-university"></i><span>Schools</span></a></li>
+          <li class="c-menu__item"><a href="#" routerLink="/comments" class="c-menu__link"><i class="la la-comment"></i><span>Comments</span></a></li>
+          <li class="c-menu__item"><a href="#" routerLink="/setting" class="c-menu__link"><i class="la la-cogs"></i><span>Setting</span></a></li>
+      </ul>
+  </ng-template>
+  </div>
+
+
+
+</div>
+

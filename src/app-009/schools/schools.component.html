@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="header">
+      <h2>School list</h2>
+    </div>
+    <div class="body-section">
+      <div class="pull-right">
+        <button class="add-user-btn" (click)="addEditSchool(false)"><i class="fa fa-plus" aria-hidden="true"></i>Add </button>
+      </div>
+      <div class="mid-section">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+
+               <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Status</th> 
+              <th>Actions</th> 
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let school of school_list">
+              <td>{{ school.schoolId }}</td>
+              <td>{{ school.schoolName }}</td>
+
+              <td>{{school.address}}</td>
+              <td>{{school.city}}</td>
+              <td>{{school.state}}</td>
+              <td>{{ (school.isBlocked)?'Blocked':'Unblocked' }}</td>
+              <td> 
+                <button  *ngIf="!school.isBlocked" (click)='block(true,school.schoolId)'><i class="fa fa-ban"></i></button>
+                <button *ngIf="school.isBlocked" (click)='unblock(false,school.schoolId)'>UnBlock</button>
+                <button  (click)='addEditSchool(school)'><i class="fa fa-edit"></i></button>
+                
+
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+  
+  <!-- address: "Meerut Cantt"
+city: "Meerut"
+isBlocked: false
+schoolId: "MpojkgBebwwnbtgMpmaD"
+schoolName: "Meerut Public School For Girls"
+state: "Uttar Pradesh" -->
+  
+        
+  
+      </div>
+    </div>
+  </div>

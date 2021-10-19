@@ -1,0 +1,27 @@
+.login-container{
+  width: 450px;
+  background: #fff;
+  padding:20px 40px 40px 40px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center  ;
+}
+.login-container .logo-img{
+  margin-bottom: 20px;
+}
+.login-wrapper{
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgb(150, 150, 150);
+  position: fixed;
+  left: 0;
+  background: url(../../assets/images/background.png);
+}
+.form-group{
+  margin-bottom: 20px;
+}
+.form-control{line-height: 2.1;}
