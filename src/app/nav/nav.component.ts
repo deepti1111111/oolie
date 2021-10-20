@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UrlSegment, Router } from '@angular/router';
+import { UrlSegment, Router, ActivatedRoute } from '@angular/router';
 
-import {DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Globals } from '../globals';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,15 +14,15 @@ export class NavComponent implements OnInit {
 
   public is_admin: boolean = false;
   public admin_info: any = {};
-  public BASE_URL:string = "";
-  public headers:any = {};
-  public TOKEN:string = "";
-  constructor(private router: Router,public global: Globals, private http: HttpClient,private sanitizer:DomSanitizer) {
+  public BASE_URL: string = "";
+  public headers: any = {};
+  public TOKEN: string = "";
+  constructor(private activeRoute: ActivatedRoute, private router: Router, public global: Globals, private http: HttpClient, private sanitizer: DomSanitizer) {
 
     this.BASE_URL = this.global.APIURL;
 
 
-    
+
   }
 
   ngOnInit(): void {
@@ -32,8 +32,8 @@ export class NavComponent implements OnInit {
 
   }
 
-  sanitize(url:string){
-    
+  sanitize(url: string) {
+
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
@@ -49,7 +49,12 @@ export class NavComponent implements OnInit {
         "Content-Type": "application/json",
         'token': this.TOKEN
       });
-      //this.router.navigate(['dashboard']);
+
+
+      if (this.router.url == "/") {
+        this.router.navigate(['dashboard']);
+      }
+
     } else {
       console.log("User is not logged IN ");
       this.is_admin = false;
@@ -58,28 +63,27 @@ export class NavComponent implements OnInit {
   }
 
 
-  public toggle:boolean = true;
-  toggleNav(slidenav:boolean){
+  public toggle: boolean = true;
+  toggleNav(slidenav: boolean) {
     this.toggle = !slidenav;
     console.log(this.toggle)
 
   }
-  logout()
-  {
-    this.http.get(this.global.APIURL+"admin/logout",this.headers)
-    .subscribe(
-      responseData=>{
-        this.is_admin = false;
-        localStorage.removeItem('user');
-        window.location.reload();
+  logout() {
+    this.http.get(this.global.APIURL + "admin/logout", this.headers)
+      .subscribe(
+        responseData => {
+          this.is_admin = false;
+          localStorage.removeItem('user');
+          window.location.reload();
 
-      },
-      error=>{
-        localStorage.removeItem('user');
-        window.location.reload();
-    
-      }
-    );
+        },
+        error => {
+          localStorage.removeItem('user');
+          window.location.reload();
+
+        }
+      );
     localStorage.removeItem('user');
     window.location.reload();
   }

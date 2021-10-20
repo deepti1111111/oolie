@@ -105,6 +105,9 @@ export class UsersComponent implements OnInit ,OnDestroy  {
         },
         error => {
           this.error = error.error.message;
+          if(error.status == 401){
+            this.logout();
+          }
         }
       );
 
@@ -183,4 +186,26 @@ export class UsersComponent implements OnInit ,OnDestroy  {
     }
   
   }
+
+  logout()
+  {
+    this.http.get(this.global.APIURL+"admin/logout",this.headers)
+    .subscribe(
+      responseData=>{
+        this.is_admin = false;
+        localStorage.removeItem('user');
+        window.location.reload();
+
+      },
+      error=>{
+        localStorage.removeItem('user');
+        window.location.reload();
+    
+      }
+    );
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
+
+
 }

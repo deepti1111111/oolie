@@ -1,26 +1,35 @@
 <div class="container">
-    <h2>Hi, {{admin_details.name}}!</h2>
-    You can set your passwrd...
-    <div class="row">
-        <div class="col-md-12">
-               <label for="">Old Password:</label>
-               <input type="text"  [(ngModel)]="passwordObj.oldPassword"> 
-        </div>
-        <div class="col-md-12">
-            <label for="">New Password:</label>
-            <input type="password"  [(ngModel)]="passwordObj.newPassword"> 
-        </div>
-        <div class="col-md-12">
-            <label for="">Confirm Password:</label>
-            <input type="password"  [(ngModel)]="passwordObj.confirmPassword"> 
-        </div>
+    <div class="title-header d-flex justify-content-between mb-3">
+        <h2>Hi, {{admin_details.name}}!</h2>
+
     </div>
-    <div class="row">
-        <div>
-            <button (click)="updatePassword()">Submit</button>
+    <div class="body-section">
+        <div class="mid-section">
+
+            <h2>You can set your passwrd...</h2>
+
+            <div class="custom-form col-md-6">
+                <div class="form-group mb-3">
+                    <label for="">Old Password:</label>
+                    <input type="text" [(ngModel)]="passwordObj.oldPassword" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">New Password:</label>
+                    <input type="password" [(ngModel)]="passwordObj.newPassword" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Confirm Password:</label>
+                    <input type="password" [(ngModel)]="passwordObj.confirmPassword" class="form-control">
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <div>
+                    <button (click)="updatePassword()" class="btn-lg btn-primary">Submit</button>
+                </div>
+                <div class="error">{{error}}</div>
+                <div class="success">{{success}}</div>
+
+            </div>
         </div>
-        <div class="error">{{error}}</div>
-        <div class="success">{{success}}</div>
-        
     </div>
 </div>
